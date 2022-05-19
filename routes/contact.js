@@ -16,6 +16,10 @@ router.post('/doesThisContactExistInThisConvo', (req, res) => {
 	ContactController.doesThisContactExistInThisConvo(req.body).then(contact => res.send(contact))
 })
 
+router.post('/getListContactInAConvo', (req, res) => {
+	ContactController.getListContactInAConvo(req.body).then(contact => res.send(contact))
+})
+
 
 
 module.exports = router;

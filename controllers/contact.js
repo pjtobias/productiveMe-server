@@ -64,3 +64,14 @@ module.exports.doesThisContactExistInThisConvo = (params) => {
 		.catch(errorMe)
 }
 // { $and: [ { contactPersonId: params.contactPersonId }, { convoThisContactBelongToId: params.convoThisContactBelongToId } ] }
+
+module.exports.getListContactInAConvo = (params) => {
+	// console.log(params)
+	return Contact.find({ 
+			convoThisContactBelongToId: params.convoThisContactBelongToId
+		})
+		.then(contacts => {
+			return contacts
+		})
+		.catch(errorMe)
+}
