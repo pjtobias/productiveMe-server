@@ -95,3 +95,16 @@ module.exports.updateIsActiveToTrue = (params) => {
 		.catch(errorMe)
 }
 
+
+
+
+module.exports.deleteProject = (params) => {
+	// console.log(params)
+
+	return Project.findByIdAndDelete(params.projectId)
+		.then((deleted, err) => {
+			return (err) ? false : true
+		})
+		.catch(errorMe)
+}
+

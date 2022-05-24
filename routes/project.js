@@ -35,5 +35,9 @@ router.put('/updateIsActiveToTrue', (req, res) => {
 	ProjectController.updateIsActiveToTrue(req.body).then(project => res.send(project))
 })
 
+router.delete('/deleteProject', (req, res) => {
+	ProjectController.deleteProject(req.body).then(project => res.send(project))
+})
+
 
 module.exports = router;

@@ -45,6 +45,14 @@ router.post('/getAllDoneTasks', (req, res) => {
 	TaskController.getAllDoneTasks(req.body).then(task => res.send(task))
 })
 
+router.post('/getTasksThruProjectId', (req, res) => {
+	TaskController.getTasksThruProjectId(req.body).then(task => res.send(task))
+})
+
+router.delete('/deleteTask', (req, res) => {
+	TaskController.deleteTask(req.body).then(task => res.send(task))
+})
+
 
 
 module.exports = router;

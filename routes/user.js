@@ -39,4 +39,6 @@ router.get('/details', auth.verify, (req, res) => {
 })
 
 
+
+
 module.exports = router

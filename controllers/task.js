@@ -74,7 +74,7 @@ module.exports.updateStatusToPending = (params) => {
 }
 
 module.exports.updateStatusToOngoing = (params) => {
-	// console.log(params)
+	console.log(params)
 
 	const updates = {
 		status: params.status
@@ -129,3 +129,21 @@ module.exports.getAllDoneTasks = (params) => {
 }
 
  // && {userAssignedInThisTaskId: params.userId}
+
+
+module.exports.getTasksThruProjectId = (params) => {
+    return Task.find({ projectThisTaskBelongToId: params.projectThisTaskBelongToId })
+    .then(task => task)
+}
+
+
+
+module.exports.deleteTask = (params) => {
+	// console.log(params)
+
+	return Task.findByIdAndDelete(params.taskId)
+		.then((deleted, err) => {
+			return (err) ? false : true
+		})
+		.catch(errorMe)
+}
