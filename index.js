@@ -77,7 +77,7 @@ const PORT = process.env.PORT
 
 //add whitelisted origins here
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000 http://167.172.228.148:3001',
     optionsSuccessStatus: 200,
     method: [ "GET", "POST" ]
 }
