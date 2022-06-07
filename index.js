@@ -83,6 +83,7 @@ const corsOptions = {
 }
 
 
+
 // mongoose.Promise = global.Promise;
 mongoose.connection.once('open', () => console.log('Now connected to MongoDB cloud.'))
 mongoose.connect(mongodbCloud, {
