@@ -43,34 +43,7 @@ const mongodbCloud = process.env.DB_MONGODB
 app.use(cors())
 
 
-    //------ From Hitesh Choudhary and PedroTech
-io.on("connection", (socket) => {
-    // console.log(`Socket id is: ${JSON.stringify(socket)}`) //My first trial and error
-    console.log("Socket here: :", socket.id)
-    console.log("Socket is active to be connected")
 
-    socket.on("join_room", (data) => {
-        socket.join(data)
-        console.log(`User with ID: ${socket.id} joined room: ${data}`)
-    })
-
-    socket.on("disconnect", () => {
-        console.log("User disconnected", socket.id)
-    })
-
-    socket.on("send_message", (data) => {
-        // console.log(data)
-        socket.to(data.room).emit("receive_message", data);
-    });
-
-        //------------------------- Hitesh Choudhary
-    socket.on("chat", (payload) => {
-        console.log("Payload here: ")
-        io.emit("chat", payload)
-    })
-        //------------------------- END Hitesh Choudhary
-})
-    //------ END From Hitesh Choudhary and PedroTech
 
 
 const PORT = process.env.PORT
@@ -125,3 +98,31 @@ server.listen(PORT, () => {
     console.log(`Server now running port: ${PORT}`)
 })
 
+    //------ From Hitesh Choudhary and PedroTech
+io.on("connection", (socket) => {
+    // console.log(`Socket id is: ${JSON.stringify(socket)}`) //My first trial and error
+    console.log("Socket here: :", socket.id)
+    console.log("Socket is active to be connected")
+
+    socket.on("join_room", (data) => {
+        socket.join(data)
+        console.log(`User with ID: ${socket.id} joined room: ${data}`)
+    })
+
+    socket.on("disconnect", () => {
+        console.log("User disconnected", socket.id)
+    })
+
+    socket.on("send_message", (data) => {
+        // console.log(data)
+        socket.to(data.room).emit("receive_message", data);
+    });
+
+        //------------------------- Hitesh Choudhary
+    socket.on("chat", (payload) => {
+        console.log("Payload here: ")
+        io.emit("chat", payload)
+    })
+        //------------------------- END Hitesh Choudhary
+})
+    //------ END From Hitesh Choudhary and PedroTech
